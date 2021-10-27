@@ -28,8 +28,8 @@ public class Main extends Application {
 	Stage window;
 	
 	public static void main(String[] args) throws Exception{
-		launch(args);	
 		TextAnalyzer.WriteFileContents();
+		launch(args);	
 	}
 	
 	@SuppressWarnings("unchecked")

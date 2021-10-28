@@ -69,7 +69,7 @@ public class Main extends Application {
 		bottom.getChildren().addAll(link, close);
 		
 		
-		//TableView - Center Section 
+		//TableView - Center Section includes the Hashmap to table columns
 		Map<String, Integer> words = new HashMap<String, Integer>();
 		TextAnalyzer.CountWords(words);
 			

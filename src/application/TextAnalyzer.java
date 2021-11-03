@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class TextAnalyzer { 
     //Method used to read .txt file after formatted and count words and their occurrences 
-    static void CountWords(Map<String, Integer> words) throws Exception{
+    static void CountWords(Map<String, Integer> words) throws FileNotFoundException, IOException{
 
     	int count = 0;
     	

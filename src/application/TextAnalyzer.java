@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class TextAnalyzer { 
-	
-	//Method used to read URL content and write to .txt file
-    protected static void WriteFileContents() throws IOException {
+    //Method used to read .txt file after formatted and count words and their occurrences 
+    static void CountWords(Map<String, Integer> words) throws Exception{
+
     	int count = 0;
     	
     	//Attempt to create file and read URL using scanner
@@ -34,22 +34,20 @@ public class TextAnalyzer {
     		}
     		scan.close();
           }
-        }
-    
-    //Method used to read .txt file after formatted and count words and their occurrences 
-    static void CountWords(Map<String, Integer> words) throws Exception{
+        
+        //File is being read and words are counted and added to the Hashmap 
     	try (FileReader fileReader = new FileReader("poem.txt");
-    			Scanner scanner=new Scanner(fileReader)){
+    			Scanner scanner = new Scanner(fileReader)){
     		while (scanner.hasNext()) {
     			String word = scanner.next().toUpperCase();
-		    	Integer count = words.get(word);
+		    	Integer counter = words.get(word);
 		    	
-				if(count != null)
-					count++;
+				if(counter != null)
+					counter++;
 				else
-					count = 1;
+					counter = 1;
 				
-				words.put(word, count);
+				words.put(word, counter);
             }
         }    	
     }

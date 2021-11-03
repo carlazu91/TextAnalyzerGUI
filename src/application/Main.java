@@ -28,7 +28,6 @@ public class Main extends Application {
 	Stage window;
 	
 	public static void main(String[] args) throws Exception{
-		TextAnalyzer.WriteFileContents();
 		launch(args);	
 	}
 	

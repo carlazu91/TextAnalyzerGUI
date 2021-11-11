@@ -8,9 +8,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/** 
+ * @author czumaran
+ */
+
 public class ConfirmBox {
 	
-	static boolean answer;
+	static boolean answer; 
+	
+	/**
+	 * The method is used output a windows where user will need to choose whether they would like to exit GUI application 
+	 * @param title is the title of the window 
+	 * @param message is the message that will output on the window for user to read
+	 * @return answer - the value of the boolean depending on users choice
+	 */
 	
 	public static boolean display(String title, String message) {
 		

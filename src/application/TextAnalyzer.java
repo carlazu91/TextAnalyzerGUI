@@ -9,10 +9,22 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Scanner;
 
-public class TextAnalyzer { 
-    //Method used to read .txt file after formatted and count words and their occurrences 
-    static void CountWords(Map<String, Integer> words) throws FileNotFoundException, IOException{
+/**
+ * 
+ * @author czumaran
+ */
 
+public class TextAnalyzer { 
+	/**
+	 * This method produces a hashmap with the words and the number of times they are used within the poem
+	 * @param words with String and Integer parameters 
+	 * @throws FileNotFoundException if the file does not exist
+	 * @throws IOException if the file could not be created or there was an error during the creation
+	 */
+	
+    //Method used to read .txt file after formatted and count words and their occurrences 
+    public static void CountWords(Map<String, Integer> words) throws FileNotFoundException, IOException{
+    	//Variable
     	int count = 0;
     	
     	//Attempt to create file and read URL using scanner

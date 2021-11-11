@@ -1,5 +1,7 @@
 package application;
 	
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,17 +25,36 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-
+/** 
+ * @author czumaran
+ */
 public class Main extends Application {
 	Stage window;
 	
-	public static void main(String[] args) throws Exception{
+	/**
+	 * This is the main method used to execute the program 
+	 * 
+	 * @param args will output the GUI using JavaFX
+	 * 
+     */
+	
+	public static void main(String[] args) {
 		launch(args);	
 	}
 	
+	/**
+	 * This method is used to create the GUI for JavaFX
+	 * 
+	 * @param primaryStage will set the Windows stage for GUI
+	 * @throws FileNotFoundException if the file does not exist
+	 * @throws IOException if the file could not be created or there was an error during the creation
+	 * 
+     */
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	
+	public void start(Stage primaryStage) throws FileNotFoundException, IOException {
 		//Setting Title to Window
 		window = primaryStage;
 		window.setTitle("Text Analyzer");
@@ -109,6 +130,11 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 
+	
+	/**
+	 * This method will execute the Confirm Box class to determine the boolean to exit application 
+	 * 
+     */
 	private void closeProgram() {
 		Boolean answer = ConfirmBox.display("Confirm", "Are you sure you want to exit?");
 		if(answer) //if true

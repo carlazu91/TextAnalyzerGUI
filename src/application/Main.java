@@ -2,6 +2,10 @@ package application;
 	
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -24,6 +28,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import java.sql.*;
 
 /** 
  * @author czumaran
@@ -92,6 +97,35 @@ public class Main extends Application {
 		//TableView - Center Section includes the Hashmap to table columns
 		Map<String, Integer> words = new HashMap<String, Integer>();
 		TextAnalyzer.CountWords(words);
+		
+	 	/* DB portion - could not get it working properly, below shows the code 
+	 	 * for the Hashmap to be read and add those values to the DB, then read the DB and the values added 
+	 	// db parameters - 
+    	String url       = "jdbc:mysql://localhost:3306/word occurrences";
+    	String user      = "root";
+    	String password  = "mypassword123";
+    	String sql = "INSERT INTO word(word) VALUES(?)";
+
+
+    	try(Connection conn = DriverManager.getConnection(url, user, password);
+    			 PreparedStatement pst = null;) {
+    		
+    		//Would insert Hasmap Values
+    		for (Map.Entry<String, Integer> next : words) {
+    			  pst.executeUpdate("INSERT INTO table (Value, Key) VALUES("+next.getValue()+",'"+next.getKey()+"');");
+    			}
+    		
+    		//Would read the database values
+        	ResultSet resSet = pst.executeQuery("SELECT * FROM table");
+
+        	while (resSet.next()) {
+        	  words.put(resSet.getString("Value"), resSet.getInt("Key"));
+        	}
+           
+    	} catch(SQLException e) {
+    	   System.out.println(e.getMessage());
+    	}
+    	*/
 			
 		TableColumn<Map.Entry<String, Integer>, String> column1 = new TableColumn<>("Key");
         column1.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, Integer>, String>, ObservableValue<String>>() {
